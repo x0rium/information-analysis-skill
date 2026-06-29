@@ -1,7 +1,7 @@
 ---
 name: information-analysis
 description: Use when turning messy, incomplete, contradictory, or source-heavy information into a grounded analytical question, evidence map, competing hypotheses, uncertainty-aware conclusion, recommendation, briefing, or update protocol. Based on the Russian textbook “Аналитика как метод обработки информации”.
-version: 1.0.0
+version: 1.1.0
 author: analytics-textbook-ru / Hermes Agent
 license: MIT
 metadata:
@@ -47,6 +47,42 @@ Do not use this as a substitute for domain-specific expertise where the task is 
 5. **Uncertainty must be actionable.** Do not write “more data needed” unless you name which data, where to get it, what it would change, and what to do if it cannot be obtained.
 6. **Recommendations cannot be stronger than conclusions.** If confidence is medium and key assumptions are weak, recommend a bounded test or reversible action, not a full irreversible move.
 7. **Revision is part of analysis.** A good conclusion includes conditions under which it should be updated.
+
+## Method Core
+
+Analysis is controlled movement between claim types:
+
+```text
+source → claim → evidence → inference → hypothesis → conclusion → recommendation → revision
+```
+
+Do not jump from information to action. Each transition must be explicit enough to be checked.
+
+### Valid analytical transitions
+
+- **Source → claim:** use a source only for what it can know.
+- **Claim → evidence:** a claim becomes evidence only relative to a question.
+- **Evidence → inference:** state what follows and what does not follow.
+- **Inference → hypothesis:** a hypothesis needs mechanism, expected signs, and weakening conditions.
+- **Hypothesis → conclusion:** choose only after comparing real alternatives on shared evidence.
+- **Conclusion → recommendation:** action strength must match confidence, cost of error, and reversibility.
+- **New information → revision:** update the affected part of the chain; do not restart or overreact by default.
+
+Central distinctions:
+
+```text
+information ≠ evidence
+evidence ≠ fact
+fact ≠ explanation
+explanation ≠ conclusion
+conclusion ≠ action
+```
+
+Use the method references when a task needs deeper control of reasoning:
+
+- `references/method-core.md` — analytical objects, valid transitions, and operations.
+- `references/evidence-and-confidence.md` — diagnosticity, evidence matrices, and confidence rules.
+- `references/decision-and-revision.md` — coupling conclusions to action and updating conclusions after new information.
 
 ## Quick Mode Selector
 
@@ -359,6 +395,9 @@ Before finalizing analysis, check:
 
 Use the linked files for deeper work:
 
+- `references/method-core.md` — analytical objects, valid transitions, and operations.
+- `references/evidence-and-confidence.md` — diagnosticity, evidence matrices, and confidence rules.
+- `references/decision-and-revision.md` — coupling conclusions to action and updating conclusions after new information.
 - `references/method-map.md` — method chooser distilled from the textbook.
 - `templates/analysis-brief.md` — reusable forms for analytical questions, source maps, unknowns, hypothesis matrices, assumptions, and conclusions.
 - `references/quality-gate.md` — final checklist and failure patterns for reviewing analytical work.

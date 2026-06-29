@@ -27,10 +27,13 @@ Use it when a task is not just “summarize this”, but requires judgment:
 ## Repository structure
 
 ```text
-SKILL.md                         Main Hermes skill
-references/method-map.md         Method selector: which analytical move to use when
-references/quality-gate.md       Checklist and scoring gate for analytical outputs
-templates/analysis-brief.md      Reusable brief templates
+SKILL.md                              Main Hermes skill
+references/method-core.md            Analytical objects, valid transitions, operations
+references/evidence-and-confidence.md Diagnosticity, evidence matrices, confidence rules
+references/decision-and-revision.md  Coupling conclusions to action and revision
+references/method-map.md             Method selector: which analytical move to use when
+references/quality-gate.md           Checklist and scoring gate for analytical outputs
+templates/analysis-brief.md          Reusable brief templates
 ```
 
 ## Install for Hermes Agent
@@ -50,6 +53,26 @@ cp -R information-analysis-skill ~/.hermes/skills/research/information-analysis
 ```
 
 Then start a fresh Hermes session and load the skill as `information-analysis`.
+
+## Method core
+
+The skill is built around lawful transitions between claim types:
+
+```text
+source → claim → evidence → inference → hypothesis → conclusion → recommendation → revision
+```
+
+Central distinctions:
+
+```text
+information ≠ evidence
+evidence ≠ fact
+fact ≠ explanation
+explanation ≠ conclusion
+conclusion ≠ action
+```
+
+The method references explain how to keep those transitions inspectable, how to judge whether evidence actually distinguishes hypotheses, and how to keep recommendations proportional to confidence and reversibility.
 
 ## Minimal workflow
 
